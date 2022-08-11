@@ -2,6 +2,9 @@ package com.shvetsov.training;
 
 import com.shvetsov.training.cityBuilder.City;
 import com.shvetsov.training.model.CityParser;
+import com.shvetsov.training.model.CityParserImpl;
+import com.shvetsov.training.model.CitySort;
+import com.shvetsov.training.model.CitySortImpl;
 import com.shvetsov.training.util.city.CityDataCsvToString;
 import com.shvetsov.training.util.city.CityDataListToCity;
 import com.shvetsov.training.util.city.CityDataStringToList;
@@ -19,11 +22,19 @@ public class Main {
 
     public static void main(String[] args) {
 
-        CityParser parser = new CityParser(new CityDataCsvToString(), new CityDataStringToList(), new CityDataListToCity());
+        CityParser parser = new CityParserImpl(new CityDataCsvToString(), new CityDataStringToList(), new CityDataListToCity());
+        CitySort cityListSort = new CitySortImpl();
 
         List<City> cityList = parser.getCityList(FILEPATH, CHARSET);
+        //cityList = cityListSort.sortByName(cityList);
+        cityList = cityListSort.sortByDistrictAndName(cityList);
+
+
+
 
         parser.print(cityList);
+
+
     }
 
 }
