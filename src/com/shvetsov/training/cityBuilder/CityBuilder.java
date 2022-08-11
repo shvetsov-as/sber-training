@@ -2,8 +2,6 @@ package com.shvetsov.training.cityBuilder;
 
 public interface CityBuilder<City> {
 
-    CityBuilder<City> setCityId(Integer cityId);
-
     CityBuilder<City> setName(String name);
 
     CityBuilder<City> setRegion(String region);

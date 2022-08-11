@@ -1,14 +1,8 @@
 package com.shvetsov.training.cityBuilder;
 
-public class CityBuiderImpl implements CityBuilder<City>{
+public class CityBuilderImpl implements CityBuilder<City>{
 
     private final City city = new City();
-
-    @Override
-    public CityBuilder<City> setCityId(Integer cityId) {
-        city.setCityId(cityId);
-        return this;
-    }
 
     @Override
     public CityBuilder<City> setName(String name) {
