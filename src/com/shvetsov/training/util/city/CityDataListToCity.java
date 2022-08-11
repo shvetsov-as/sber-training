@@ -1,16 +1,22 @@
 package com.shvetsov.training.util.city;
 
 import com.shvetsov.training.cityBuilder.City;
-import com.shvetsov.training.cityBuilder.CityBuiderImpl;
+import com.shvetsov.training.cityBuilder.CityBuilderImpl;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class StringDataToCity {
+public class CityDataListToCity {
 
-    private static final int BAD_DATA = -1;
-    private static final int STANDARD_DATA_ARRAY_LENGTH = 6;
+    private static final int STANDARD_DATA_ARRAY_LENGTH = 5; //number of parameters in standard city (0 to 4)
+
+    /**
+     * Разбор списка массивов с данными о городе
+     *
+     * @param cityDataList список городов, где каждый массив - данные одного города
+     * @return список городов
+     */
 
     public List<City> getCityList(List<String[]> cityDataList) {
 
@@ -18,31 +24,22 @@ public class StringDataToCity {
         for (String[] cityPart : cityDataList) {
 
             if (cityPart.length < STANDARD_DATA_ARRAY_LENGTH) {
-
                 cityPart = Arrays.copyOf(cityPart, STANDARD_DATA_ARRAY_LENGTH);
-                for (int i = 0; i < cityPart.length; i++) {
-                    if (cityPart[i] == null) {
-                        cityPart[i] = String.valueOf(BAD_DATA);
-                    }
-                }
-
+                cityPart[4] = null;
             }
 
-            int cityId = BAD_DATA;
-            int cityPopulation = BAD_DATA;
-            String cityName = cityPart[1];
-            String cityRegion = cityPart[2];
-            String cityDistrict = cityPart[3];
-            String cityFoundation = cityPart[5];
+            int cityPopulation = 0;
+            String cityName = cityPart[0];
+            String cityRegion = cityPart[1];
+            String cityDistrict = cityPart[2];
+            String cityFoundation = cityPart[4];
 
             try {
-                cityId = Integer.parseInt(cityPart[0]);
-                cityPopulation = Integer.parseInt(cityPart[4]);
+                cityPopulation = Integer.parseInt(cityPart[3]);
             } catch (NumberFormatException e) {
                 e.printStackTrace();
             } finally {
-                City city = new CityBuiderImpl()
-                        .setCityId(cityId)
+                City city = new CityBuilderImpl()
                         .setName(cityName)
                         .setRegion(cityRegion)
                         .setDistrict(cityDistrict)

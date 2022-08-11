@@ -2,20 +2,11 @@ package com.shvetsov.training.cityBuilder;
 
 public class City {
 
-    private Integer cityId;
     private String name; //наименование города
     private String region; //регион
     private String district; //федеральный округ
     private Integer population; //количество жителей города
     private String foundation; //дата основания или первое упоминание
-
-    public Integer getCityId() {
-        return cityId;
-    }
-
-    public void setCityId(Integer cityId) {
-        this.cityId = cityId;
-    }
 
     public String getName() {
         return name;
