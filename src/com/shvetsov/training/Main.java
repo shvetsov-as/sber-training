@@ -27,9 +27,8 @@ public class Main {
 
         List<City> cityList = parser.getCityList(FILEPATH, CHARSET);
         //cityList = cityListSort.sortByName(cityList);
-        cityList = cityListSort.sortByDistrictAndName(cityList);
-
-
+        //cityList = cityListSort.sortByDistrictAndName(cityList);
+        cityListSort.sortByDistrictAndName(cityList);
 
 
         parser.print(cityList);
