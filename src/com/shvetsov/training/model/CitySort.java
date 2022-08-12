@@ -6,5 +6,6 @@ import java.util.List;
 
 public interface CitySort {
     List<City> sortByName(List<City> cityList);
-    List<City> sortByDistrictAndName(List<City> cityList);
+    List<City> sortByDistrictAndNameV1(List<City> cityList);
+    void sortByDistrictAndName(List<City> cityList);
 }

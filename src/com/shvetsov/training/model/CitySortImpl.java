@@ -30,7 +30,12 @@ public class CitySortImpl implements CitySort {
      */
 
     @Override
-    public List<City> sortByDistrictAndName(List<City> cityList) {
+    public void sortByDistrictAndName(List<City> cityList) {
+        cityList.sort(Comparator.comparing(City::getDistrict).thenComparing(City::getName));
+    }
+
+    @Override
+    public List<City> sortByDistrictAndNameV1(List<City> cityList) {
         return cityList.stream().sorted(new Comparator<>() {
             @Override
             public int compare(City o1, City o2) {
