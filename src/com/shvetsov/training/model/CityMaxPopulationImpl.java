@@ -34,6 +34,6 @@ public class CityMaxPopulationImpl implements CityMaxPopulation{
                 maxIndex = i;
             }
         }
-        return String.format("[%s] = %s", maxIndex, maxPop);
+        return String.format("[%s] = %s", maxIndex, maxPop); //System.out.println(MessageFormat.format("[{0}] = {1}", index, array[index]));
     }
 }

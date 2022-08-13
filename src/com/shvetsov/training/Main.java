@@ -1,6 +1,8 @@
 package com.shvetsov.training;
 
 import com.shvetsov.training.cityBuilder.City;
+import com.shvetsov.training.model.CityInRegionCount;
+import com.shvetsov.training.model.CityInRegionCountImpl;
 import com.shvetsov.training.model.CityMaxPopulation;
 import com.shvetsov.training.model.CityMaxPopulationImpl;
 import com.shvetsov.training.model.CityParser;
@@ -27,6 +29,7 @@ public class Main {
         CityParser parser = new CityParserImpl(new CityDataCsvToString(), new CityDataStringToList(), new CityDataListToCity());
         CitySort cityListSort = new CitySortImpl();
         CityMaxPopulation cityMaxPopulation = new CityMaxPopulationImpl();
+        CityInRegionCount citiesInRegion = new CityInRegionCountImpl();
 
         List<City> cityList = parser.getCityList(FILEPATH, CHARSET);
         //cityList = cityListSort.sortByName(cityList);
@@ -36,7 +39,9 @@ public class Main {
 
         //parser.print(cityList);
 
-        System.out.println(cityMaxPopulation.getCityWithMaxPopulation(cityList));
+        //System.out.println(cityMaxPopulation.getCityWithMaxPopulation(cityList));
+
+        citiesInRegion.print(citiesInRegion.count(cityList));
 
 
     }
