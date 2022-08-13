@@ -41,7 +41,9 @@ public class Main {
 
         //System.out.println(cityMaxPopulation.getCityWithMaxPopulation(cityList));
 
-        citiesInRegion.print(citiesInRegion.count(cityList));
+        //citiesInRegion.print(citiesInRegion.count(cityList));
+
+        citiesInRegion.printV2(citiesInRegion.countV2(cityList));
 
 
     }

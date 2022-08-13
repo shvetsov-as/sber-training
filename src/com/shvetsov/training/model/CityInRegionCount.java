@@ -9,5 +9,9 @@ public interface CityInRegionCount {
 
     void print (Map<String, Integer> citiesInRegionCount);
 
+    void printV2 (Map<String, Integer> citiesInRegionCount);
+
     Map<String, Integer> count (List<City> cityList);
+
+    Map<String, Integer> countV2 (List<City> cityList);
 }
